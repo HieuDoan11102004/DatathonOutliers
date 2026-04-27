@@ -1,0 +1,94 @@
+============================================================
+V4 HYBRID KAGGLE ARCHITECTURE: DLINEAR + TREE ENSEMBLE
+============================================================
+============================================================
+FEATURE ENGINEERING (DLinear + Tree Variant)
+============================================================
+  Adding Time encodings...
+  Adding Advanced Behavioral Events (Tet, Payday)...
+  Adding Safe Long Lags (> 548 days)...
+  Bootstrapping Auxiliary Tables via Macro Mapping...
+  Mapping Auxiliary Tables via Seasonal Lattices...
+
+  ✅ Safe Tabular Features Created: 26
+
+============================================================
+STEP 2: Train PyTorch DLinear for Macro Trend/Seasonality
+============================================================
+  Training DLinear strict on train data only (Length: 2737)...
+    DLinear running on: cuda
+      Epoch [001/100] | Train RMSE: 5.2780 | Val RMSE: 1.2438 *
+      Epoch [002/100] | Train RMSE: 0.8226 | Val RMSE: 0.6165 *
+      Epoch [003/100] | Train RMSE: 0.5780 | Val RMSE: 0.5945 *
+      Epoch [005/100] | Train RMSE: 0.5498 | Val RMSE: 0.6277 
+      Epoch [010/100] | Train RMSE: 0.4882 | Val RMSE: 0.7262 
+      Early stopping at epoch 13. Best Val RMSE: 0.5945
+  Generating continuous DLinear Baseline Sequence...
+  ✅ Saved train.csv, val.csv, and test.csv separately.
+  Train: 2012-07-04 → 2019-12-31
+  Test Extrapolation (Submission) Coverage Verified: 2024-07-01
+
+============================================================
+STEP 3: Tree Ensemble Learning (5-Folds)
+============================================================
+  Features loaded: 27
+  (Sanity check: 'dlinear_pred' in features? True)
+
+  ► Fold 1/5 -----------------------------------
+    LightGBM...
+    XGBoost...
+    CatBoost...
+
+  ► Fold 2/5 -----------------------------------
+    LightGBM...
+    XGBoost...
+    CatBoost...
+
+  ► Fold 3/5 -----------------------------------
+    LightGBM...
+    XGBoost...
+    CatBoost...
+
+  ► Fold 4/5 -----------------------------------
+    LightGBM...
+    XGBoost...
+    CatBoost...
+
+  ► Fold 5/5 -----------------------------------
+    LightGBM...
+    XGBoost...
+    CatBoost...
+
+============================================================
+STEP 4: Evaluate Hybrid Model
+============================================================
+  📊 Saved: lgbm_importance_v4.png
+
+  📊 Ensemble Metrics:
+  Hybrid on Val  (in-sample)               | MAE:    1,724,537 | RMSE:    2,005,909 | R²: -0.4988
+  Hybrid on Test (holdout)                 | MAE:    1,233,887 | RMSE:    1,517,966 | R²: 0.1775
+
+============================================================
+STEP 5: Generate Submission using DLinear + 15 Trees
+============================================================
+
+  ✅ Submission saved: /home/ntngoc/Datathon/v4_dlinear_tree/submission_v4.csv
+  Revenue range: 1,870,192 → 11,142,630
+  Revenue mean:  4,781,890
+
+  Preview:
+      Date    Revenue       COGS
+2023-01-01 3633302.37 2518885.15
+2023-01-02 2342846.85 1136463.00
+2023-01-03 2704753.34  822721.12
+2023-01-04 3099869.05  914554.18
+2023-01-05 2109725.10  984390.24
+2023-01-06 2332950.15 1040418.44
+2023-01-07 2942480.12 1119430.49
+2023-01-08 2683998.07 1142951.32
+2023-01-09 2564159.55 1221315.20
+2023-01-10 2458368.84 1258681.76
+
+============================================================
+🚀 V4 Hybrid Pipeline Complete!
+============================================================

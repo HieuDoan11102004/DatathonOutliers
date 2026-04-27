@@ -1,0 +1,596 @@
+=== PAGE 1 ===
+−→ĐỀ THI VÒNG 1
+DATATHON 2026
+THE GRIDBREAKER
+Breaking Business Boundaries
+Hosted by
+VinTelligence
+VinUniversity Data Science & AI Club
+Cuộc thi Khoa học Dữ liệu đầu tiên tại VinUniversity
+Biến Dữ liệu thành Giải pháp cho Doanh nghiệp
+
+=== PAGE 2 ===
+DATATHON 2026— The GridbreakersĐược tổ chức bởi VinTelligence — VinUni DS&AI Club
+Contents
+1 Mô tả Dữ liệu 2
+1.1 Giới thiệu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2
+1.2 Tổng quan các bảng dữ liệu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2
+1.3 Bảng Master . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2
+1.3.1products.csv— Danh mục sản phẩm . . . . . . . . . . . . . . . . . . . . 2
+1.3.2customers.csv— Khách hàng . . . . . . . . . . . . . . . . . . . . . . . . 3
+1.3.3promotions.csv— Chương trình khuyến mãi . . . . . . . . . . . . . . . 3
+1.3.4geography.csv— Địa lý . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+1.4 Bảng Transaction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+1.4.1orders.csv— Đơn hàng . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+1.4.2order_items.csv— Chi tiết đơn hàng . . . . . . . . . . . . . . . . . . . 4
+1.4.3payments.csv— Thanh toán . . . . . . . . . . . . . . . . . . . . . . . . . 4
+1.4.4shipments.csv— Vận chuyển . . . . . . . . . . . . . . . . . . . . . . . . 4
+1.4.5returns.csv— Trả hàng . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+1.4.6reviews.csv— Đánh giá . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+1.5 Bảng Analytical . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+1.5.1sales.csv— Dữ liệu doanh thu . . . . . . . . . . . . . . . . . . . . . . . 5
+1.6 Bảng Operational . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+1.6.1inventory.csv— Tồn kho . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+1.6.2web_traffic.csv— Lưu lượng truy cập . . . . . . . . . . . . . . . . . . 5
+1.7 Quan hệ giữa các bảng . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+2 Đề Bài 7
+2.1 Phần 1 — Câu hỏi Trắc nghiệm . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+2.2 Phần 2 — Trực quan hoá và Phân tích Dữ liệu . . . . . . . . . . . . . . . . . . . 10
+2.2.1 Yêu cầu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+2.3 Phần 3 — Mô hình Dự báo Doanh thu (Sales Forecasting) . . . . . . . . . . . . . 11
+2.3.1 Bối cảnh kinh doanh . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+2.3.2 Định nghĩa bài toán . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+2.3.3 Dữ liệu . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+2.3.4 Chỉ số đánh giá . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+2.3.5 Định dạng file nộp . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+2.3.6 Ràng buộc . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+3 Thang điểm Chấm thi 13
+4 Hướng dẫn Nộp bài 16
+4.1 Checklist nộp bài . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+1
+
+=== PAGE 3 ===
+DATATHON 2026— The GridbreakersĐược tổ chức bởi VinTelligence — VinUni DS&AI Club
+Mô tả Dữ liệu
+Giới thiệu
+Bộ dữ liệu mô phỏng hoạt động của một doanh nghiệp thời trang thương mại điện tử tại Việt
+Nam trong giai đoạn từ04/07/2012đến31/12/2022. Dữ liệu bao gồm 15 file CSV, được
+chia thành 4 lớp:Master(dữ liệu tham chiếu),Transaction(giao dịch),Analytical(phân tích)
+vàOperational(vận hành).
+Phân chia dữ liệu cho bài toán dự báo:
+•sales_train.csv: 04/07/2012→31/12/2022
+•sales_test.csv: 01/01/2023→01/07/2024
+Tổng quan các bảng dữ liệu
+Table 1: Danh sách các file dữ liệu
+# File Lớp Mô tả
+1products.csvMaster Danh mục sản phẩm
+2customers.csvMaster Thông tin khách hàng
+3promotions.csvMaster Các chiến dịch khuyến mãi
+4geography.csvMaster Danh sách mã bưu chính các vùng
+5orders.csvTransaction Thông tin đơn hàng
+6order_items.csvTransaction Chi tiết từng dòng sản phẩm trong đơn
+7payments.csvTransaction Thông tin thanh toán tương ứng 1:1 với đơn hàng
+8shipments.csvTransaction Thông tin vận chuyển
+9returns.csvTransaction Các sản phẩm bị trả lại
+10reviews.csvTransaction Đánh giá sản phẩm sau giao hàng
+11sales.csvAnalytical Dữ liệu doanh thu huấn luyện
+12sample_submission.csvAnalytical Định dạng file nộp bài(mẫu)
+13inventory.csvOperational Ảnh chụp tồn kho cuối tháng
+14web_traffic.csvOperational Lưu lượng truy cập website hàng ngày
+Bảng Master
+▶products.csv— Danh mục sản phẩm
+Cột Kiểu Mô tả
+product_idint Khoá chính
+product_namestr Tên sản phẩm
+categorystr Danh mục sản phẩm
+segmentstr Phân khúc thị trường của sản phẩm
+sizestr Kích cỡ sản phẩm
+colorstr Nhãn màu sản phẩm
+pricefloat Giá bán lẻ
+cogsfloat Giá vốn hàng bán
+Ràng buộc:cogs < pricevới mọi sản phẩm.
+2
+
+=== PAGE 4 ===
+DATATHON 2026— The GridbreakersĐược tổ chức bởi VinTelligence — VinUni DS&AI Club
+▶customers.csv— Khách hàng
+Cột Kiểu Mô tả
+customer_idint Khoá chính
+zipint Mã bưu chính (FK→geography.zip)
+citystr Tên thành phố của khách hàng
+signup_datedate Ngày đăng ký tài khoản
+genderstr Giới tính khách hàng (nullable)
+age_groupstr Nhóm tuổi khách hàng (nullable)
+acquisition_channelstr Kênh tiếp thị khách hàng đăng ký qua (nullable)
+▶promotions.csv— Chương trình khuyến mãi
+Cột Kiểu Mô tả
+promo_idstr Khoá chính
+promo_namestr Tên chiến dịch kèm năm
+promo_typestr Loại giảm giá: theo phần trăm hoặc số tiền cố định
+discount_valuefloat Giá trị giảm (phần trăm hoặc số tiền tùypromo_type)
+start_datedate Ngày bắt đầu chiến dịch
+end_datedate Ngày kết thúc chiến dịch
+applicable_categorystr Danh mục áp dụng,nullnếu áp dụng tất cả
+promo_channelstr Kênh phân phối áp dụng khuyến mãi (nullable)
+stackable_flagint Cờ cho phép áp dụng đồng thời nhiều khuyến mãi
+min_order_valuefloat Giá trị đơn hàng tối thiểu để áp dụng khuyến mãi (nullable)
+Công thức giảm giá:
+•percentage:discount_amount=quantity×unit_price×(discount_value/100)
+•fixed:discount_amount=quantity×discount_value
+▶geography.csv— Địa lý
+Cột Kiểu Mô tả
+zipint Khoá chính (mã bưu chính)
+citystr Tên thành phố
+regionstr Vùng địa lý
+districtstr Tên quận/huyện
+Bảng Transaction
+▶orders.csv— Đơn hàng
+Cột Kiểu Mô tả
+order_idint Khoá chính
+order_datedate Ngày đặt hàng
+customer_idint FK→customers.customer_id
+zipint Mã bưu chính giao hàng (FK→geography.zip)
+order_statusstr Trạng thái xử lý của đơn hàng
+payment_methodstr Phương thức thanh toán được sử dụng
+device_typestr Thiết bị khách hàng dùng khi đặt hàng
+order_sourcestr Kênh marketing dẫn đến đơn hàng
+3
+
+=== PAGE 5 ===
+DATATHON 2026— The GridbreakersĐược tổ chức bởi VinTelligence — VinUni DS&AI Club
+▶order_items.csv— Chi tiết đơn hàng
+Cột Kiểu Mô tả
+order_idint FK→orders.order_id
+product_idint FK→products.product_id
+quantityint Số lượng sản phẩm đặt mua
+unit_pricefloat Đơn giá sau khi áp dụng khuyến mãi
+discount_amountfloat Tổng số tiền giảm giá cho dòng sản phẩm này
+promo_idstr FK→promotions.promo_id(nullable)
+promo_id_2str FK→promotions.promo_id, khuyến mãi thứ hai (nullable)
+▶payments.csv— Thanh toán
+Cột Kiểu Mô tả
+order_idint FK→orders.order_id(quan hệ 1:1)
+payment_methodstr Phương thức thanh toán
+payment_valuefloat Tổng giá trị thanh toán của đơn hàng
+installmentsint Số kỳ trả góp
+▶shipments.csv— Vận chuyển
+Cột Kiểu Mô tả
+order_idint FK→orders.order_id
+ship_datedate Ngày gửi hàng
+delivery_datedate Ngày giao hàng đến tay khách
+shipping_feefloat Phí vận chuyển (0 nếu đơn được miễn phí)
+Chỉ tồn tại cho đơn hàng có trạng tháishipped,deliveredhoặcreturned.
+▶returns.csv— Trả hàng
+Cột Kiểu Mô tả
+return_idstr Khoá chính
+order_idint FK→orders.order_id
+product_idint FK→products.product_id
+return_datedate Ngày khách gửi trả hàng
+return_reasonstr Lý do trả hàng
+return_quantityint Số lượng sản phẩm trả lại
+refund_amountfloat Số tiền hoàn lại cho khách
+▶reviews.csv— Đánh giá
+Cột Kiểu Mô tả
+review_idstr Khoá chính
+order_idint FK→orders.order_id
+product_idint FK→products.product_id
+customer_idint FK→customers.customer_id
+review_datedate Ngày khách gửi đánh giá
+ratingint Điểm đánh giá từ 1 đến 5
+review_titlestr Tiêu đề đánh giá của khách hàng
+4
+
+=== PAGE 6 ===
+DATATHON 2026— The GridbreakersĐược tổ chức bởi VinTelligence — VinUni DS&AI Club
+Bảng Analytical
+▶sales.csv— Dữ liệu doanh thu
+Cột Kiểu Mô tả
+Datedate Ngày đặt hàng
+Revenuefloat Tổng doanh thu thuần
+COGSfloat Tổng giá vốn hàng bán
+Split File Khoảng thời gian
+Trainsales.csv04/07/2012 – 31/12/2022
+Testsales_test.csv01/01/2023 – 01/07/2024
+Lưu ý:Tập test sẽ không được công bố mà được dùng để đánh giá kết quả mô hình trên
+Kaggle. Cấu trúc của file test sẽ giống vớisample_submission.csv
+Bảng Operational
+▶inventory.csv— Tồn kho
+Cột Kiểu Mô tả
+snapshot_datedate Ngày chụp ảnh tồn kho (cuối tháng)
+product_idint FK→products.product_id
+stock_on_handint Số lượng tồn kho cuối tháng
+units_receivedint Số lượng nhập kho trong tháng
+units_soldint Số lượng bán ra trong tháng
+stockout_daysint Số ngày hết hàng trong tháng
+days_of_supplyfloat Số ngày tồn kho có thể đáp ứng nhu cầu bán
+fill_ratefloat Tỷ lệ đơn hàng được đáp ứng đủ từ tồn kho
+stockout_flagint Cờ báo tháng có xảy ra hết hàng
+overstock_flagint Cờ báo tồn kho vượt mức cần thiết
+reorder_flagint Cờ báo cần tái đặt hàng sớm
+sell_through_ratefloat Tỷ lệ hàng đã bán so với tổng hàng sẵn có
+product_namestr Tên sản phẩm
+categorystr Danh mục sản phẩm
+segmentstr Phân khúc sản phẩm
+yearint Năm trích từsnapshot_date
+monthint Tháng trích từsnapshot_date
+▶web_traffic.csv— Lưu lượng truy cập
+Cột Kiểu Mô tả
+datedate Ngày ghi nhận lưu lượng
+sessionsint Tổng số phiên truy cập trong ngày
+unique_visitorsint Số lượt khách truy cập duy nhất
+page_viewsint Tổng số lượt xem trang
+bounce_ratefloat Tỷ lệ phiên chỉ xem một trang rồi thoát
+avg_session_duration_secfloat Thời gian trung bình mỗi phiên (giây)
+traffic_sourcestr Kênh nguồn dẫn traffic về website
+5
+
+=== PAGE 7 ===
+DATATHON 2026— The GridbreakersĐược tổ chức bởi VinTelligence — VinUni DS&AI Club
+Quan hệ giữa các bảng
+Table 2: Quy tắc quan hệ (Cardinality)
+Quan hệ Cardinality
+orders↔payments1 : 1
+orders↔shipments1 : 0 hoặc 1 (trạng thái shipped/delivered/returned)
+orders↔returns1 : 0 hoặc nhiều (trạng thái returned)
+orders↔reviews1 : 0 hoặc nhiều (trạng thái delivered,∼20%)
+order_items↔promotionsnhiều : 0 hoặc 1
+products↔inventory1 : nhiều (1 dòng/sản phẩm/tháng)
+6
+
+=== PAGE 8 ===
+DATATHON 2026— The GridbreakersĐược tổ chức bởi VinTelligence — VinUni DS&AI Club
+Đề Bài
+Phần 1 — Câu hỏi Trắc nghiệm
+Chọnmộtđáp án đúng nhất cho mỗi câu hỏi. Các câu hỏi yêu cầu tính toán trực tiếp từ
+dữ liệu được cung cấp.
+Q1.Trong số các khách hàng có nhiều hơn một đơn hàng,trung vị số ngày giữa hai lần
+mua liên tiếp(inter-order gap) xấp xỉ là bao nhiêu? (Tính từorders.csv)
+A) 30 ngày
+B) 90 ngày
+C) 180 ngày
+D) 365 ngày
+Q2.Phân khúc sản phẩm (segment) nào trongproducts.csvcótỷ suất lợi nhuận gộp
+trung bìnhcao nhất, với công thức(price−cogs)/price?
+A) Premium
+B) Performance
+C) Activewear
+D) Standard
+Q3.Trong các bản ghi trả hàng liên kết với sản phẩm thuộc danh mụcStreetwear(join
+returnsvớiproductstheoproduct_id),lý do trả hàngnào xuất hiện nhiều nhất?
+A)defective
+B)wrong_size
+C)changed_mind
+D)not_as_described
+Q4.Trongweb_traffic.csv, nguồn truy cập (traffic_source) nào cótỷ lệ thoát trung
+bình(bounce_rate)thấpnhấttrêntấtcảcácngàyxuấthiệnnguồnđótrongcộttraffic_source?
+A)organic_search
+B)paid_search
+C)email_campaign
+D)social_media
+7
+
+=== PAGE 9 ===
+DATATHON 2026— The GridbreakersĐược tổ chức bởi VinTelligence — VinUni DS&AI Club
+Q5.Tỷ lệ phần trăm các dòng trongorder_items.csvcó áp dụng khuyến mãi (tức làpromo_id
+không null) xấp xỉ là bao nhiêu?
+A) 12%
+B) 25%
+C) 39%
+D) 54%
+Q6.Trongcustomers.csv, xét các khách hàng cóage_groupkhác null, nhóm tuổi nào cósố
+đơn hàng trung bình trên mỗi khách hàngcao nhất? (tổng số đơn / số khách hàng trong
+nhóm)
+A) 55+
+B) 25–34
+C) 35–44
+D) 45–54
+Q7.Vùng (region) nào tronggeography.csvtạo ratổng doanh thu cao nhấttrong
+sales_train.csv?
+A) West
+B) Central
+C) East
+D) Cả ba vùng có doanh thu xấp xỉ bằng nhau
+Q8.Trong các đơn hàng cóorder_status = ’cancelled’trongorders.csv,phương thức
+thanh toánnào được sử dụng nhiều nhất?
+A) credit_card
+B) cod
+C) paypal
+D) bank_transfer
+Q9.Trong bốn kích thước sản phẩm (S, M, L, XL), kích thước nào cótỷ lệ trả hàng cao
+nhất, được định nghĩa là số bản ghi trongreturnschia cho số dòng trongorder_items(join
+vớiproductstheoproduct_id)?
+A) S
+B) M
+C) L
+8
+
+=== PAGE 10 ===
+DATATHON 2026— The GridbreakersĐược tổ chức bởi VinTelligence — VinUni DS&AI Club
+D) XL
+Q10.Trongpayments.csv,kế hoạch trả gópnào cógiá trị thanh toán trung bình trên
+mỗi đơn hàngcao nhất?
+A) 1 kỳ (trả một lần)
+B) 3 kỳ
+C) 6 kỳ
+D) 12 kỳ
+9
+
+=== PAGE 11 ===
+DATATHON 2026— The GridbreakersĐược tổ chức bởi VinTelligence — VinUni DS&AI Club
+Phần 2 — Trực quan hoá và Phân tích Dữ liệu
+Khám phá bộ dữ liệu để tìm ra các insight có ý nghĩa kinh doanh. Phần này được đánh
+giá dựa trêntính sáng tạo,chiều sâu phân tíchvàchất lượng trình bày. Không có
+đáp án đúng duy nhất — ban giám khảo đánh giá khả năng kể chuyện bằng dữ liệu (data
+storytelling) của các đội.
+▶Yêu cầu
+Các đội thi tự do lựa chọn góc nhìn phân tích từ bộ dữ liệu. Bài nộp cần bao gồm hai thành
+phần:
+1. Trực quan hoá (Visualizations):Tạo các biểu đồ, đồ thị, bản đồ hoặc dashboard trực
+quan để thể hiện các pattern, xu hướng và mối quan hệ trong dữ liệu. Mỗi hình ảnh cần
+có tiêu đề, nhãn trục rõ ràng và chú thích phù hợp.
+2. Phân tích (Analysis):Viết phần giải thích đi kèm mỗi trực quan hoá, bao gồm:
+•Mô tả những gì biểu đồ thể hiện và tại sao góc nhìn này quan trọng
+•Các phát hiện chính (key findings) được hỗ trợ bởi số liệu cụ thể
+•Ý nghĩa kinh doanh (business implications) hoặc đề xuất hành động (actionable rec-
+ommendations)
+Tiêu chí đánh giá Phần 2:Bài nộp được đánh giá theo bốn cấp độ phân tích. Cấp độ
+cao hơn bao gồm và nâng cao cấp độ thấp hơn.
+Cấp độ Câu hỏi Ban giám khảo đánh giá
+DescriptiveWhat happened? Thống kê tổng hợp chính xác, biểu đồ có
+nhãn rõ ràng, tổng hợp dữ liệu đúng
+DiagnosticWhy did it hap-
+pen?
+Giả thuyết nhân quả, so sánh phân khúc,
+xác định bất thường có bằng chứng hỗ trợ
+PredictiveWhat is likely to
+happen?
+Ngoại suy xu hướng, phân tích tính mùa
+vụ, phân tích chỉ số dẫn xuất
+PrescriptiveWhat should we
+do?
+Đề xuất hành động kinh doanh được hỗ
+trợ bởi dữ liệu; đánh đổi được định lượng
+Các đội đạt cấp độPrescriptivenhất quán trên nhiều phân tích sẽ đạt điểm cao nhất.
+10
+
+=== PAGE 12 ===
+DATATHON 2026— The GridbreakersĐược tổ chức bởi VinTelligence — VinUni DS&AI Club
+Phần 3 — Mô hình Dự báo Doanh thu (Sales Forecasting)
+▶Bối cảnh kinh doanh
+Bạn là nhà khoa học dữ liệu tại một công ty thương mại điện tử thời trang Việt Nam. Doanh
+nghiệp cần dự báo nhu cầu chính xác ở mức chi tiết để tối ưu hoá phân bổ tồn kho, lập kế hoạch
+khuyến mãi và quản lý logistics trên toàn quốc.
+▶Định nghĩa bài toán
+Dự báo cộtRevenuetrong khoảng thời gian củasales_test.csv.
+Mỗidòngtrongtậptestlàmộtbộ(Date,Revenue,COGS)duynhấttronggiaiđoạn01/01/2023
+– 01/07/2024.
+▶Dữ liệu
+Split File Khoảng thời gian
+Trainsales.csv04/07/2012 – 31/12/2022
+Testsales_test.csv01/01/2023 – 01/07/2024
+▶Chỉ số đánh giá
+Bài nộp được đánh giá bằng ba chỉ số:
+Mean Absolute Error (MAE):
+MAE= 1
+n
+n∑
+i=1
+|Fi−Ai|
+Root Mean Squared Error (RMSE):
+RMSE=
+√ 1
+n
+n∑
+i=1
+(Fi−Ai)2
+R2 (Coefficient of Determination):
+R2 = 1−
+∑n
+i=1(Ai−Fi)2
+∑n
+i=1(Ai−¯A)2
+trong đóFi là giá trị dự báo,Ai là giá trị thực,¯Alà trung bình giá trị thực. MAE đo độ
+lệch tuyệt đối trung bình, RMSE phạt nặng hơn các sai số lớn, vàR2 thể hiện tỷ lệ phương sai
+được giải thích bởi mô hình.
+MAE và RMSEcàng thấp càng tốt.R2 càng cao càng tốt(lý tưởng gần 1).
+▶Định dạng file nộp
+Nộp filesubmission.csvvới các cột sau:
+Các dòng trongsubmission.csvphải giữđúng thứ tựnhưsample_submission.csv.
+Khôngsắp xếp lại hoặc xáo trộn.
+Ví dụ:
+11
+
+=== PAGE 13 ===
+DATATHON 2026— The GridbreakersĐược tổ chức bởi VinTelligence — VinUni DS&AI Club
+Date,Revenue,COGS
+2023-01-01,26607.2,2585.15
+2023-01-02,1007.89,163.0
+2023-01-03,1089.51,821.12
+...
+▶Ràng buộc
+1. Không dùng dữ liệu ngoài:Tất cả đặc trưng phải được tạo từ các file dữ liệu được
+cung cấp.
+2. Tính tái lập (Reproducibility):Đính kèm toàn bộ mã nguồn. Đặt random seed khi
+cần thiết.
+3. Khả năng giải thích (Explainability):Trong report, bao gồm một mục giải thích các
+yếu tố dẫn động doanh thu chính được mô hình xác định (vd: feature importances, SHAP
+values, hoặc partial dependence plots). Giải thích những gì mô hình học được bằng ngôn
+ngữ kinh doanh.
+12
+
+=== PAGE 14 ===
+DATATHON 2026— The GridbreakersĐược tổ chức bởi VinTelligence — VinUni DS&AI Club
+Thang điểm Chấm thi
+Tổng điểm tối đa:100 điểm, phân bổ theo ba phần thi. Điểm thành phầnkhông làm
+tròncho đến khi tính tổng cuối cùng.
+Table 3: Phân bổ điểm tổng quan
+Phần Nội dung Điểm Tỷ trọng
+1 Câu hỏi Trắc nghiệm (MCQ) 20 20%
+2 Trực quan hoá & Phân tích (EDA) 60 60%
+3 Mô hình Dự báo Doanh thu (Forecasting) 20 20%
+Tổng 100 100%
+Phần 1 — Câu hỏi Trắc nghiệm (20 điểm)
+Mỗi câu đúng được2 điểm. Không trừ điểm cho câu trả lời sai.
+Thành phần Số câu Điểm
+Câu trả lời đúng 10 câu 2 điểm / câu
+Câu trả lời sai — 0 điểm
+Không trả lời — 0 điểm
+Tổng tối đa 20 điểm
+Phần 2 — Trực quan hoá & Phân tích EDA (60 điểm)
+Phần này được chấm theobốn tiêu chí độc lập, mỗi tiêu chí tương ứng với một cấp độ phân
+tích trong rubric. Ban giám khảo chấm từng tiêu chí trên thang điểm thành phần, sau đó cộng
+lại.
+13
+
+=== PAGE 15 ===
+DATATHON 2026— The GridbreakersĐược tổ chức bởi VinTelligence — VinUni DS&AI Club
+Tiêu chí Mô tả Điểm tối đa
+Chất lượng trực
+quan hoá
+Biểu đồ có tiêu đề, nhãn trục, chú
+thích đầy đủ; lựa chọn loại biểu đồ
+phù hợp; thẩm mỹ trình bày rõ ràng
+15
+Chiều sâu phân
+tích
+Bao phủ đầy đủ bốn cấp độ Descrip-
+tive→Diagnostic→Predictive→
+Prescriptive; lập luận logic, có số
+liệu cụ thể hỗ trợ
+25
+Insight kinh doanh Phát hiện có giá trị thực tiễn; đề
+xuất hành động khả thi; liên kết rõ
+ràng giữa dữ liệu và quyết định kinh
+doanh
+15
+Tính sáng tạo & kể
+chuyện
+Góc nhìn độc đáo, không lặp lại các
+phân tích hiển nhiên; mạch trình
+bày coherent; kết nối nhiều bảng dữ
+liệu một cách có chủ đích
+5
+Tổng tối đa 60 điểm
+Chi tiết thang điểm từng tiêu chí:
+Tiêu chí Mức
+điểm
+Mô tả
+Chất lượng
+trực quan hoá
+(15đ)
+13–15đ Tất cả biểu đồ đều đạt chuẩn, lựa chọn loại
+biểu đồ tối ưu cho từng insight
+8–12đ Phần lớn biểu đồ đạt yêu cầu, một số thiếu
+nhãn hoặc chú thích
+0–7đ Biểu đồ thiếu thông tin, khó đọc hoặc không
+phù hợp với dữ liệu
+Chiều sâu
+phân tích
+(25đ)
+21–25đ Đạt cả bốn cấp độ Descriptive, Diagnostic,
+Predictive, Prescriptive một cách nhất quán
+14–20đ Đạt ba cấp độ, cấp độ Prescriptive còn hời
+hợt
+7–13đ Chủ yếu ở cấp Descriptive và Diagnostic
+0–6đ Chỉ mô tả bề mặt, thiếu phân tích
+Insight
+kinh doanh
+(15đ)
+13–15đ Đề xuất cụ thể, định lượng được, áp dụng
+được ngay
+8–12đ Có đề xuất nhưng còn chung chung
+0–7đ Thiếu kết nối với bối cảnh kinh doanh
+Tính sáng tạo
+(5đ)
+4–5đ Góc nhìn độc đáo, kết hợp nhiều nguồn dữ
+liệu, mạch trình bày thuyết phục
+2–3đ Có điểm sáng tạo nhưng chưa nhất quán
+0–1đ Phân tích dự đoán được, không có điểm nổi
+bật
+Phần 3 — Mô hình Dự báo Doanh thu (20 điểm)
+Điểm Phần 3 được tính từhai thành phần: hiệu suất mô hình trên Kaggle và chất lượng báo
+cáo kỹ thuật.
+14
+
+=== PAGE 16 ===
+DATATHON 2026— The GridbreakersĐược tổ chức bởi VinTelligence — VinUni DS&AI Club
+Thành phần Mô tả Điểm tối đa
+Hiệu suất mô hình Dựa trên điểm MAE, RMSE,
+R2 trên tập test (Kaggle leader-
+board); xếp hạng tương đối so
+với các đội khác trong cuộc thi
+12
+Báo cáo kỹ thuật Chất lượng pipeline (feature en-
+gineering, cross-validation, xử
+lý leakage); giải thích mô hình
+bằng SHAP / feature impor-
+tance; tuân thủ các ràng buộc
+đã nêu
+8
+Tổng tối đa 20 điểm
+Thành phần Mức
+điểm
+Mô tả
+Hiệu suất mô hình
+(12đ)
+10–12đ Xếp hạng top leaderboard; MAE và
+RMSE thấp,R2 cao
+5–9đ Hiệu suất trung bình; mô hình hoạt động
+nhưng chưa tối ưu
+3–4đ Bài nộp hợp lệ nhưng hiệu suất thấp; mức
+điểm sàn
+Báo cáo kỹ thuật
+(8đ)
+7–8đ Pipeline rõ ràng, cross-validation đúng
+chiều thời gian, giải thích mô hình cụ thể
+bằng SHAP hoặc tương đương, tuân thủ
+đầy đủ ràng buộc
+4–6đ Pipeline đủ dùng, giải thích còn định tính,
+một số ràng buộc chưa được xử lý tường
+minh
+0–3đ Thiếu giải thích, không kiểm soát leakage,
+hoặc không thể tái lập kết quả
+Điều kiện loại bài:Bài nộp sẽ bịloại toàn bộ Phần 3nếu vi phạm bất kỳ ràng buộc
+nào sau đây: (1) sử dụngRevenue/COGStừ tập test làm đặc trưng; (2) sử dụng dữ liệu
+ngoài bộ dữ liệu được cung cấp; (3) không đính kèm mã nguồn hoặc kết quả không thể tái
+lập.
+15
+
+=== PAGE 17 ===
+DATATHON 2026— The GridbreakersĐược tổ chức bởi VinTelligence — VinUni DS&AI Club
+Hướng dẫn Nộp bài
+Checklist nộp bài
+Mỗi đội cần hoàn thành và nộp đầy đủ các mục sau:
+1. Nộp kết quả dự báo trên Kaggle
+2. Link Kaggle:https://www.kaggle.com/competitions/datathon-2026-round-1
+Đảm bảo filesubmission.csvcó đúng số lượng dòng và giữ nguyên thứ tự như
+sample_submission.csv. File không đúng định dạng sẽ bị từ chối bởi hệ thống
+Kaggle.
+3. Báo cáo (Report)
+Viết báo cáo sử dụngtemplate LaTeX của NeurIPS, có thể tải tại:
+https://neurips.cc/Conferences/2025/CallForPapers
+Yêu cầu báo cáo:
+•Giới hạn tối đa4 trang(không tính references và appendix)
+•Bao gồm các nội dung:
+–Trực quan hoá và phân tích dữ liệu (Phần 2)
+–Phương pháp tiếp cận, pipeline mô hình và kết quả thực nghiệm (Phần 3)
+•Đính kèm link GitHub repositorycủa nhóm trong báo cáo (chứa toàn bộ mã
+nguồn, notebook, và file submission)
+Lưu ý:GitHub repository cần được đặt ở chế độpublichoặc cấp quyền truy cập
+cho ban tổ chức trước deadline nộp bài. Repository nên cóREADME.mdmô tả cấu trúc
+thư mục và hướng dẫn chạy lại kết quả.
+4. Form nộp bài thi Vòng 1
+Điền đầy đủ thông tin trong form nộp bài chính thức (link sẽ được cung cấp). Form yêu
+cầu:
+•Chọn đáp án đúng cho câu hỏi trắc nghiệm
+•Upload file báo cáo (PDF)
+•Link GitHub repository
+•Link submission trên Kaggle
+•Ảnh chụp thẻ sinh viêncủatất cảthành viên trong đội
+•Tickbox xác nhận:Nhóm thi cam kết cóít nhất 1 thành viêncó thể tham gia
+trực tiếp Vòng Chung kết vào ngày23/05/2026tạiĐại học VinUni, Hà Nội
+Quan trọng:Các đội không xác nhận khả năng tham gia trực tiếp Vòng Chung kết
+hoặc không cung cấp đầy đủ ảnh thẻ học sinh sẽkhông đủ điều kiệnđể được xét
+vào vòng tiếp theo.
+16
+
