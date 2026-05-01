@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/home/ntngoc/Datathon/timesfm/timesfm_tuned_search.py", line 507, in main
+    run()
+  File "/home/ntngoc/Datathon/timesfm/timesfm_tuned_search.py", line 391, in run
+    family_target_preds[target][family] = _forecast_family(history, horizon, family)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ntngoc/Datathon/timesfm/timesfm_tuned_search.py", line 145, in _forecast_family
+    pred = _timesfm_segment(work_hist, horizon)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ntngoc/Datathon/timesfm/timesfm_tuned_search.py", line 116, in _timesfm_segment
+    model = _model_for_horizon(horizon)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ntngoc/Datathon/timesfm/timesfm_tuned_search.py", line 99, in _model_for_horizon
+    model = loader(horizon=horizon)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ntngoc/Datathon/timesfm/timesfm_forecast.py", line 23, in _load_model
+    return timesfm.TimesFm(
+           ^^^^^^^^^^^^^^^
+AttributeError: module 'timesfm' has no attribute 'TimesFm'

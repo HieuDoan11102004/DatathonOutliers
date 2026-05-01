@@ -1,0 +1,2 @@
+candidate,weighted_avg_mape,folds_evaluated,scenarios_covered,Revenue_mae,Revenue_mape,COGS_mae,COGS_mape,avg_mae,avg_mape
+meta_bucket_target_ensemble,6.780204831476722,8,4,147758.71804008627,5.940968043854491,157212.96149618024,6.831748519851249,152485.83976813324,6.3863582818528695

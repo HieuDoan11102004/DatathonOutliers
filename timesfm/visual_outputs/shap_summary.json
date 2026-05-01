@@ -1,0 +1,290 @@
+{
+  "Revenue_Residual": {
+    "top_features": [
+      {
+        "rank": 1,
+        "feature": "gross_item_value",
+        "importance_pct": 50.18000030517578,
+        "direction": "positive",
+        "mean_abs_shap": 936693.12
+      },
+      {
+        "rank": 2,
+        "feature": "Revenue_seasonal",
+        "importance_pct": 26.329999923706055,
+        "direction": "negative",
+        "mean_abs_shap": 491445.44
+      },
+      {
+        "rank": 3,
+        "feature": "years_since_start",
+        "importance_pct": 7.769999980926514,
+        "direction": "positive",
+        "mean_abs_shap": 144983.2
+      },
+      {
+        "rank": 4,
+        "feature": "COGS_seasonal",
+        "importance_pct": 7.389999866485596,
+        "direction": "negative",
+        "mean_abs_shap": 137879.69
+      },
+      {
+        "rank": 5,
+        "feature": "quantity_sum",
+        "importance_pct": 3.390000104904175,
+        "direction": "positive",
+        "mean_abs_shap": 63278.82
+      },
+      {
+        "rank": 6,
+        "feature": "unique_customer_count",
+        "importance_pct": 1.659999966621399,
+        "direction": "positive",
+        "mean_abs_shap": 30986.11
+      },
+      {
+        "rank": 7,
+        "feature": "avg_active_discount_value",
+        "importance_pct": 0.699999988079071,
+        "direction": "positive",
+        "mean_abs_shap": 12996.58
+      },
+      {
+        "rank": 8,
+        "feature": "year",
+        "importance_pct": 0.5600000023841858,
+        "direction": "positive",
+        "mean_abs_shap": 10412.44
+      },
+      {
+        "rank": 9,
+        "feature": "delivered_order_count",
+        "importance_pct": 0.5,
+        "direction": "positive",
+        "mean_abs_shap": 9416.31
+      },
+      {
+        "rank": 10,
+        "feature": "dow_sin",
+        "importance_pct": 0.46000000834465027,
+        "direction": "positive",
+        "mean_abs_shap": 8583.74
+      },
+      {
+        "rank": 11,
+        "feature": "order_count",
+        "importance_pct": 0.33000001311302185,
+        "direction": "positive",
+        "mean_abs_shap": 6191.9
+      },
+      {
+        "rank": 12,
+        "feature": "doy_cos",
+        "importance_pct": 0.20999999344348907,
+        "direction": "negative",
+        "mean_abs_shap": 3978.86
+      },
+      {
+        "rank": 13,
+        "feature": "day_of_week",
+        "importance_pct": 0.14000000059604645,
+        "direction": "positive",
+        "mean_abs_shap": 2578.04
+      },
+      {
+        "rank": 14,
+        "feature": "bounce_rate",
+        "importance_pct": 0.05999999865889549,
+        "direction": "positive",
+        "mean_abs_shap": 1100.93
+      },
+      {
+        "rank": 15,
+        "feature": "discount_sum",
+        "importance_pct": 0.05999999865889549,
+        "direction": "positive",
+        "mean_abs_shap": 1071.63
+      },
+      {
+        "rank": 16,
+        "feature": "doy_sin",
+        "importance_pct": 0.05000000074505806,
+        "direction": "negative",
+        "mean_abs_shap": 1007.6
+      },
+      {
+        "rank": 17,
+        "feature": "unique_visitors",
+        "importance_pct": 0.05000000074505806,
+        "direction": "negative",
+        "mean_abs_shap": 856.45
+      },
+      {
+        "rank": 18,
+        "feature": "cancelled_order_count",
+        "importance_pct": 0.03999999910593033,
+        "direction": "positive",
+        "mean_abs_shap": 747.66
+      },
+      {
+        "rank": 19,
+        "feature": "avg_discount_per_order",
+        "importance_pct": 0.029999999329447746,
+        "direction": "positive",
+        "mean_abs_shap": 580.28
+      },
+      {
+        "rank": 20,
+        "feature": "page_views",
+        "importance_pct": 0.019999999552965164,
+        "direction": "positive",
+        "mean_abs_shap": 395.34
+      }
+    ]
+  },
+  "COGS_Revenue_Ratio": {
+    "top_features": [
+      {
+        "rank": 1,
+        "feature": "avg_active_discount_value",
+        "importance_pct": 25.75,
+        "direction": "positive",
+        "mean_abs_shap": 0.03
+      },
+      {
+        "rank": 2,
+        "feature": "month_cos",
+        "importance_pct": 14.829999923706055,
+        "direction": "negative",
+        "mean_abs_shap": 0.01
+      },
+      {
+        "rank": 3,
+        "feature": "years_since_start",
+        "importance_pct": 11.3100004196167,
+        "direction": "negative",
+        "mean_abs_shap": 0.01
+      },
+      {
+        "rank": 4,
+        "feature": "avg_discount_per_order",
+        "importance_pct": 9.319999694824219,
+        "direction": "negative",
+        "mean_abs_shap": 0.01
+      },
+      {
+        "rank": 5,
+        "feature": "doy_cos",
+        "importance_pct": 5.949999809265137,
+        "direction": "positive",
+        "mean_abs_shap": 0.01
+      },
+      {
+        "rank": 6,
+        "feature": "doy_sin",
+        "importance_pct": 5.75,
+        "direction": "positive",
+        "mean_abs_shap": 0.01
+      },
+      {
+        "rank": 7,
+        "feature": "year",
+        "importance_pct": 4.980000019073486,
+        "direction": "negative",
+        "mean_abs_shap": 0.0
+      },
+      {
+        "rank": 8,
+        "feature": "max_active_discount_value",
+        "importance_pct": 4.429999828338623,
+        "direction": "positive",
+        "mean_abs_shap": 0.0
+      },
+      {
+        "rank": 9,
+        "feature": "discount_sum",
+        "importance_pct": 2.9000000953674316,
+        "direction": "negative",
+        "mean_abs_shap": 0.0
+      },
+      {
+        "rank": 10,
+        "feature": "active_percentage_promo_count",
+        "importance_pct": 2.869999885559082,
+        "direction": "positive",
+        "mean_abs_shap": 0.0
+      },
+      {
+        "rank": 11,
+        "feature": "day_of_year",
+        "importance_pct": 2.859999895095825,
+        "direction": "negative",
+        "mean_abs_shap": 0.0
+      },
+      {
+        "rank": 12,
+        "feature": "week_of_year",
+        "importance_pct": 1.7400000095367432,
+        "direction": "negative",
+        "mean_abs_shap": 0.0
+      },
+      {
+        "rank": 13,
+        "feature": "month",
+        "importance_pct": 1.649999976158142,
+        "direction": "negative",
+        "mean_abs_shap": 0.0
+      },
+      {
+        "rank": 14,
+        "feature": "month_sin",
+        "importance_pct": 1.2300000190734863,
+        "direction": "negative",
+        "mean_abs_shap": 0.0
+      },
+      {
+        "rank": 15,
+        "feature": "avg_session_duration_sec",
+        "importance_pct": 0.9100000262260437,
+        "direction": "positive",
+        "mean_abs_shap": 0.0
+      },
+      {
+        "rank": 16,
+        "feature": "unique_visitors",
+        "importance_pct": 0.49000000953674316,
+        "direction": "negative",
+        "mean_abs_shap": 0.0
+      },
+      {
+        "rank": 17,
+        "feature": "Revenue_seasonal",
+        "importance_pct": 0.46000000834465027,
+        "direction": "positive",
+        "mean_abs_shap": 0.0
+      },
+      {
+        "rank": 18,
+        "feature": "bounce_rate",
+        "importance_pct": 0.4399999976158142,
+        "direction": "positive",
+        "mean_abs_shap": 0.0
+      },
+      {
+        "rank": 19,
+        "feature": "paid_search_order_share",
+        "importance_pct": 0.4000000059604645,
+        "direction": "negative",
+        "mean_abs_shap": 0.0
+      },
+      {
+        "rank": 20,
+        "feature": "sessions",
+        "importance_pct": 0.3799999952316284,
+        "direction": "negative",
+        "mean_abs_shap": 0.0
+      }
+    ]
+  }
+}

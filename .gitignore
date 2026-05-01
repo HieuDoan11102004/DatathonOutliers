@@ -1,2 +1,9 @@
 .venv
 venv
+*.pyc
+*.pth
+*.log
+.ipynb_checkpoints
+__pycache__
+*.ckpt
+*.pt    
